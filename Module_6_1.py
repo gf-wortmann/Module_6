@@ -6,19 +6,17 @@ class Livable:
 
 
 class Plant(Livable):
-    edible = False
-
     def __init__(self, name):
         super().__init__(name)
+        self.edible = False
 
 
 class Animal(Livable):
     # не все животные - млекопитающие
-    alive = True
-    fed = False
-
     def __init__(self, name):
         super().__init__(name)
+        self.alive = True
+        self.fed = False
 
     def feed(self, is_fed: bool, food):
         if is_fed:
@@ -33,8 +31,7 @@ class Animal(Livable):
 
 
 class Mammal(Animal):
-    # родительский класс для хищников и млекопитающих
-
+    # родительский класс для хищников и травоядных
     def __init__(self, name):
         super().__init__(name)
 
@@ -107,7 +104,7 @@ print(wolf.fed)
 print(goat.alive)
 
 rabbit.eat(carrot)
-print(goat.fed)
+print(rabbit.fed)
 
 fox.eat(rabbit)
 print(fox.fed)
